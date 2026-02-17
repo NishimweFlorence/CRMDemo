@@ -1,0 +1,65 @@
+@page "/Campaigns/{id:int}"
+@using Domain.Entities
+@using Application.Services.Campaigns
+@inject ICampaignService CampaignService
+
+<PageTitle>Campaign Details</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">Campaign Details</MudText>
+        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Campaigns">Back to Campaigns</MudButton>
+    </div>
+
+    @if (campaign != null)
+    {
+        <MudCard>
+            <MudCardContent>
+                <MudSimpleTable>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold;">Id</td>
+                            <td>@campaign.Id</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Name</td>
+                            <td>@campaign.Name</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Type</td>
+                            <td>@campaign.type</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Description</td>
+                            <td>@campaign.Description</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Start Date</td>
+                            <td>@campaign.StartDate.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">End Date</td>
+                            <td>@campaign.EndDate.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudCardContent>
+        </MudCard>
+    }
+    else
+    {
+        <MudProgressCircular Indeterminate="true" />
+        <MudText>Loading campaign details...</MudText>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private Campaign campaign;
+
+    protected override void OnInitialized()
+    {
+      campaign = CampaignService.GetCampaignById(id);
+    }
+}

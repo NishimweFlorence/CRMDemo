@@ -1,0 +1,60 @@
+@page "/Campaigns/Create"
+@rendermode InteractiveServer
+@using Application.DTO
+@using Domain.Entities
+@using Application.Services.Campaigns
+@using System.ComponentModel.DataAnnotations
+@inject ICampaignService CampaignServiceService
+@inject NavigationManager NavigationManager
+
+
+<PageTitle>Create Campaign</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Create Campaign</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Campaigns">Back to Campaigns</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(HasErrors() ? "block" : "none");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <MudTextField @bind-Value="Model.Name" Label="Name" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Name)" />
+                <MudTextField @bind-Value="Model.Description" Label="Description" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Description)" />
+                <MudDatePicker @bind-Value="Model.StartDate" Label="Start Date" Variant="Variant.Outlined" Class="mt-3" />
+                <MudDatePicker @bind-Value="Model.EndDate" Label="End Date" Variant="Variant.Outlined" Class="mt-3" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Create Campaign</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+            
+        
+
+
+           
+
+@code{
+
+    private CampaignCreateDTO Model = new CampaignCreateDTO();
+
+    private bool HasErrors()
+    {
+        return false;
+    }
+
+    private void OnValidSubmit()
+    {
+        CampaignServiceService.CreateCampaign(Model);
+        NavigationManager.NavigateTo("/Campaigns");
+    }
+}

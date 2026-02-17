@@ -1,0 +1,46 @@
+@page "/Customers/Create"
+@using Application.DTO
+@using Domain.Entities
+@using Application.Services.Customers
+@inject ICustomerService CustomerService
+@inject NavigationManager NavigationManager
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Create Customer</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Create Customer</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Customers">Back to Customers</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(true ? "none" : "block");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <MudTextField @bind-Value="Model.Names" Label="Names" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Names)" />
+                <MudTextField @bind-Value="Model.Email" Label="Email" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Email)" />
+                <MudTextField @bind-Value="Model.Phone" Label="Phone" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Phone)" />
+                <MudTextField @bind-Value="Model.Address" Label="Address" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Address)" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Create Customer</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code{
+    private CustomerCreateDTO Model = new CustomerCreateDTO();
+
+    private void OnValidSubmit()
+    {
+        CustomerService.CreateCustomer(Model);
+        NavigationManager.NavigateTo("/Customers");
+    }
+}

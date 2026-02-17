@@ -1,0 +1,48 @@
+﻿@page "/Customers"
+
+@using Domain.Entities
+@using Application.Services.Customers
+
+@inject ICustomerService CustomerService
+
+<PageTitle>Customers</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">Customers</MudText>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/Customers/Create" StartIcon="@Icons.Material.Filled.Add">Add Customer</MudButton>
+    </div>
+
+    <MudTable Items="@customers" Hover="true" Striped="true" FixedHeader="false" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Id</MudTh>
+            <MudTh>Names</MudTh>
+            <MudTh>Email</MudTh>
+            <MudTh>Phone</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="customer">
+            <MudTd DataLabel="Id">@customer.Id</MudTd>
+            <MudTd DataLabel="Names">@customer.Names</MudTd>
+            <MudTd DataLabel="Email">@customer.Email</MudTd>
+            <MudTd DataLabel="Phone">@customer.Phone</MudTd>
+            <MudTd DataLabel="Address">@customer.Address</MudTd>
+            <MudTd DataLabel="Actions">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" Href="@($"/Customers/{customer.Id}")">Details</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" Href="@($"/Customers/Edit/{customer.Id}")">Edit</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+
+@code {
+
+     List<Customer> customers = new List<Customer>();
+     
+     protected override void OnInitialized()
+     {
+         customers = CustomerService.GetAllCustomers();
+     }
+    
+}

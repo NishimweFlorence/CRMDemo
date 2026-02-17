@@ -1,0 +1,50 @@
+@page "/User"
+@using Application.DTO
+@using Application.Services.Identities
+@using Domain.Entities
+
+@inject IIdentityService IdentityService
+@inject NavigationManager Navigation
+
+<PageTitle>Users</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">User</MudText>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/Register" StartIcon="@Icons.Material.Filled.Add">Add User</MudButton>
+    </div>
+
+    <MudTable Items="@Users" Hover="true" Striped="true" FixedHeader="false" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Id</MudTh>
+            <MudTh>FirstName</MudTh>
+            <MudTh>LastName</MudTh>
+            <MudTh>PhoneNumber</MudTh>
+            <MudTh>Email</MudTh>
+             <MudTh>Action</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="user">
+            <MudTd DataLabel="Id">@user.Id</MudTd>
+            <MudTd DataLabel="FirstName">@user.FirstName</MudTd>
+            <MudTd DataLabel="LastName">@user.LastName</MudTd>
+            <MudTd DataLabel="PhoneNumber">@user.PhoneNumber</MudTd>
+        
+            <MudTd DataLabel="Email">@user.Email</MudTd>
+            <MudTd DataLabel="Actions">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" Href="@($"/User/{user.Id}")">Details</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" Href="@($"/User/Edit/{user.Id}")">Edit</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+
+@code {
+
+     List<UserDetailDTO> Users= new List<UserDetailDTO>();
+     
+     protected override async Task OnInitializedAsync()
+     {
+         Users = await IdentityService.GetAllUsers();
+     }
+    
+}

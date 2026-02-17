@@ -1,0 +1,55 @@
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\KCS technologies\source\repos\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.dll
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.pdb
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.dll
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.pdb
+D:\Others\Apps\CRMDemo\CRMDemo\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\KCS technologies\source\repos\CRMDemo\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\ahoab\Downloads\CRMDemo\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\Florence\Desktop\Projects\CRMDemo\Core\Domain\obj\Debug\net10.0\ref\Domain.dll

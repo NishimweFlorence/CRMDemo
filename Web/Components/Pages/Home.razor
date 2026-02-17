@@ -1,0 +1,20 @@
+﻿@page "/Dashboard"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<PageTitle>Home</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-16">
+    <div style="text-align: center;">
+        <MudText Typo="Typo.h3" GutterBottom="true">Welcome to CRM Demo</MudText>
+        <MudText Typo="Typo.body1" Color="Color.Default">
+            This is your customer relationship management application built with Blazor and MudBlazor.
+        </MudText>
+        <div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center;">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Href="/Customers">View Customers</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Large" Href="/Campaigns">View Campaigns</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Large" Href="/SupportTickets">View Support Tickets</MudButton>
+        </div>
+    </div>
+</MudContainer>

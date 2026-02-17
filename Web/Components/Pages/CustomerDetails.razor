@@ -1,0 +1,61 @@
+@page "/Customers/{id:int}"
+@using Domain.Entities
+@using Application.Services.Customers
+@inject ICustomerService CustomerService
+
+<PageTitle>Customer Details</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">Customer Details</MudText>
+        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Customers">Back to Customers</MudButton>
+    </div>
+
+    @if (customer != null)
+    {
+        <MudCard>
+            <MudCardContent>
+                <MudSimpleTable>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold;">Id</td>
+                            <td>@customer.Id</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Names</td>
+                            <td>@customer.Names</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Email</td>
+                            <td>@customer.Email</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Phone</td>
+                            <td>@customer.Phone</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Address</td>
+                            <td>@customer.Address</td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudCardContent>
+        </MudCard>
+    }
+    else
+    {
+        <MudProgressCircular Indeterminate="true" />
+        <MudText>Loading customer details...</MudText>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private Customer customer;
+
+    protected override void OnInitialized()
+    {
+      customer = CustomerService.GetCustomerById(id);
+    }
+}

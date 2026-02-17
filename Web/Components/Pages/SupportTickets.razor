@@ -1,0 +1,46 @@
+﻿@page "/SupportTickets"
+@using Domain.Entities
+@using Application.Services.SupportTickets
+@inject ISupportTicketService SupportTicketService
+
+<PageTitle>Support Tickets</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">Support Tickets</MudText>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/SupportTickets/Create" StartIcon="@Icons.Material.Filled.Add">Add Support Ticket</MudButton>
+    </div>
+
+    <MudTable Items="@tickets" Hover="true" Striped="true" FixedHeader="false" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Id</MudTh>
+            <MudTh>Ticket Number</MudTh>
+            <MudTh>Category</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="ticket">
+            <MudTd DataLabel="Id">@ticket.Id</MudTd>
+            <MudTd DataLabel="Ticket Number">@ticket.TicketNumber</MudTd>
+            <MudTd DataLabel="Category">@ticket.category</MudTd>
+            <MudTd DataLabel="Status">@ticket.status</MudTd>
+            <MudTd DataLabel="Description">@ticket.Description</MudTd>
+            <MudTd DataLabel="Actions">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" Href="@($"/SupportTickets/{ticket.Id}")">Details</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" Href="@($"/SupportTickets/Edit/{ticket.Id}")">Edit</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+
+@code {
+
+     List<SupportTicket> tickets = new List<SupportTicket>();
+     
+     protected override void OnInitialized()
+     {
+         tickets = SupportTicketService.GetAllSupportTickets();
+     }
+    
+}

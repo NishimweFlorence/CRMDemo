@@ -1,0 +1,70 @@
+@page  "/Campaigns/Edit/{id:int}"
+@using Domain.Entities
+@using Application.DTO
+@using Application.Services.Campaigns
+@using System.ComponentModel.DataAnnotations
+@inject ICampaignService CampaignService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+<PageTitle>Edit Campaign</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Edit Campaign</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Campaigns">Back to List</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(HasErrors() ? "block" : "none");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <MudTextField @bind-Value="Model.Name" Label="Name" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Name)" />
+                <MudTextField @bind-Value="Model.Description" Label="Description" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Description)" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Update Campaign</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private CampaignUpdateDTO Model{get; set;} = new CampaignUpdateDTO();
+    private bool loaded;
+    
+    private bool HasErrors()
+    {
+        return false;
+    }
+    
+    protected override void OnParametersSet(){
+     var campaign= CampaignService.GetCampaignById(id);
+        if(campaign != null){
+            Model = new CampaignUpdateDTO{
+            Name = campaign.Name ?? "",
+       
+            Description = campaign.Description ?? "",
+              };
+      
+            
+        }
+        loaded = true;
+    }
+    private void OnValidSubmit(){
+        if (Model== null) return;
+        CampaignService.UpdateCampaign(id, Model);  
+        NavigationManager.NavigateTo(uri: "/Campaigns");
+    }
+}  
+
+
+
+        
+            

@@ -1,0 +1,48 @@
+@page "/SupportTickets/Create"
+@using Application.DTO
+@using Domain.Entities
+@using Application.Services.SupportTickets
+@inject ISupportTicketService SupportTicketService
+@inject NavigationManager NavigationManager
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Create Support Ticket</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Create Support Ticket</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/SupportTickets">Back to Support Tickets</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(true ? "none" : "block");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+       public int userId { get; set; }
+                <MudTextField @bind-Value="Model.userId" Label="User ID" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.userId)" />
+                <MudTextField @bind-Value="Model.TicketNumber" Label="Ticket Number" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.TicketNumber)" />
+                <MudTextField @bind-Value="Model.category" Label="Category" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.category)" />
+                <MudTextField @bind-Value="Model.status" Label="Status" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.status)" />
+                 <MudTextField @bind-Value="Model.Description" Label="Description" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Description)" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Create Support Ticket</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code{
+    private SupportTicketCreateDTO Model = new SupportTicketCreateDTO();
+
+    private void OnValidSubmit()
+    {
+        SupportTicketService.CreateSupportTicket(Model);
+        NavigationManager.NavigateTo("/SupportTickets");
+    }
+}

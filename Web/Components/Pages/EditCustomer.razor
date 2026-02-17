@@ -1,0 +1,70 @@
+@page  "/Customers/Edit/{id:int}"
+@using Domain.Entities
+@using Application.DTO
+@using Application.Services.Customers
+@using System.ComponentModel.DataAnnotations
+@inject ICustomerService CustomerService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit Customer</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Edit Customer</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/Customers">Back to List</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(HasErrors() ? "block" : "none");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <MudTextField @bind-Value="model.Names" Label="Names" Variant="Variant.Outlined" Class="mt-3" For="@(() => model.Names)" />
+                <MudTextField @bind-Value="model.Phone" Label="Phone" Variant="Variant.Outlined" Class="mt-3" For="@(() => model.Phone)" />
+                <MudTextField @bind-Value="model.City" Label="City" Variant="Variant.Outlined" Class="mt-3" For="@(() => model.City)" />
+                <MudTextField @bind-Value="model.Address" Label="Address" Variant="Variant.Outlined" Class="mt-3" For="@(() => model.Address)" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Update Customer</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private CustomerUpdateDTO model{get; set;} = new CustomerUpdateDTO();
+    private bool loaded;
+    
+    private bool HasErrors()
+    {
+        return false;
+    }
+    
+    protected override void OnParametersSet(){
+     var customer= CustomerService.GetCustomerById(id);
+        if(customer != null){
+            model = new CustomerUpdateDTO{
+                Names = customer.Names ?? "",
+               Phone = customer.Phone ?? "",
+                City = customer.City ?? "",
+                Address = customer.Address ?? ""
+            };
+      
+            
+        }
+        loaded = true;
+    }
+    private void OnValidSubmit(){
+        if (model== null) return;
+        CustomerService.UpdateCustomer(id, model);  
+        NavigationManager.NavigateTo(uri: "/Customers");
+    }
+}  

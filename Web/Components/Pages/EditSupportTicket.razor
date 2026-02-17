@@ -1,0 +1,72 @@
+@page  "/SupportTickets/Edit/{id:int}"
+@using Domain.Entities
+@using Application.DTO
+@using Application.Services.SupportTickets
+@using System.ComponentModel.DataAnnotations
+@inject ISupportTicketService SupportTicketService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+<PageTitle>Edit Support Ticket</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Edit Support Ticket</MudText>
+            <MudSpacer/>
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Href="/SupportTickets">Back to List</MudButton>
+        </MudCardHeader>
+        <MudCardContent>
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div style="margin-bottom: 16px;">
+                    <div class="mud-input-error-text" style="display: @(HasErrors() ? "block" : "none");">
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <MudTextField @bind-Value="Model.category" Label="Category" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.category)" />
+                <MudTextField @bind-Value="Model.status" Label="Status" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.status)" />
+                <MudTextField @bind-Value="Model.Description" Label="Description" Variant="Variant.Outlined" Class="mt-3" For="@(() => Model.Description)" />
+                <div class="mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Update Campaign</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private SupportTicketUpdateDTO Model{get; set;} = new SupportTicketUpdateDTO();
+    private bool loaded;
+    
+    private bool HasErrors()
+    {
+        return false;
+    }
+    
+    protected override void OnParametersSet(){
+     var supportTicket= SupportTicketService.GetSupportTicketById(id);
+        if(supportTicket != null){
+            Model = new SupportTicketUpdateDTO{
+
+        category = supportTicket.category ?? "",
+        status = supportTicket.status ?? "",
+         Description = supportTicket.Description ?? "",
+              };
+      
+            
+        }
+        loaded = true;
+    }
+    private void OnValidSubmit(){
+        if (Model== null) return;
+        SupportTicketService.UpdateSupportTicket(id, Model);  
+        NavigationManager.NavigateTo(uri: "/SupportTickets");
+    }
+}  
+
+
+
+        
+            

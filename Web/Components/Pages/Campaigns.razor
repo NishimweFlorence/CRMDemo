@@ -1,0 +1,50 @@
+﻿@page "/Campaigns"
+
+@using Domain.Entities
+@using Application.Services.Campaigns
+
+@inject ICampaignService CampaignService
+
+<PageTitle>Campaigns</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <MudText Typo="Typo.h4">Campaigns</MudText>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/Campaigns/Create" StartIcon="@Icons.Material.Filled.Add">Add Campaign</MudButton>
+    </div>
+
+    <MudTable Items="@campaigns" Hover="true" Striped="true" FixedHeader="false" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Id</MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Type</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Start Date</MudTh>
+            <MudTh>End Date</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="row">
+            <MudTd DataLabel="Id">@row.Id</MudTd>
+            <MudTd DataLabel="Name">@row.Name</MudTd>
+            <MudTd DataLabel="Type">@row.type</MudTd>
+            <MudTd DataLabel="Description">@row.Description</MudTd>
+            <MudTd DataLabel="Start Date">@row.StartDate.ToString("yyyy-MM-dd")</MudTd>
+            <MudTd DataLabel="End Date">@row.EndDate.ToString("yyyy-MM-dd")</MudTd>
+            <MudTd DataLabel="Actions">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" Href="@($"/Campaigns/{row.Id}")">Details</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" Href="@($"/Campaigns/Edit/{row.Id}")">Edit</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+
+@code {
+
+     List<Campaign> campaigns = new List<Campaign>();
+     
+     protected override void OnInitialized()
+     {
+         campaigns = CampaignService.GetAllCampains();
+     }
+    
+}
