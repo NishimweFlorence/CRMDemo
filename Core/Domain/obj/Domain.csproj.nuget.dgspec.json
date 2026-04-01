@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Florence\\Desktop\\Projects\\CRMDemo\\Core\\Domain\\Domain.csproj": {}
+    "C:\\Users\\CNS Technologies\\source\\CRMDemo\\Core\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Florence\\Desktop\\Projects\\CRMDemo\\Core\\Domain\\Domain.csproj": {
+    "C:\\Users\\CNS Technologies\\source\\CRMDemo\\Core\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Florence\\Desktop\\Projects\\CRMDemo\\Core\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\CNS Technologies\\source\\CRMDemo\\Core\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Florence\\Desktop\\Projects\\CRMDemo\\Core\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Florence\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Florence\\Desktop\\Projects\\CRMDemo\\Core\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\CNS Technologies\\source\\CRMDemo\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\CNS Technologies\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CNS Technologies\\source\\CRMDemo\\Core\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Florence\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\CNS Technologies\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -61,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
